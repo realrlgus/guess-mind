@@ -25,9 +25,13 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100%;
-  .loginBox,
-  .gameContainer {
+  .loginBox {
     display: none;
+  }
+  .user {
+    display: none;
+    font-size: 16pt;
+    font-weight: 700;
   }
   &.loggedOut {
     .loginBox {
@@ -35,7 +39,10 @@ body {
     }
   }
   &.loggedIn {
-    .gameContainer {
+    .userContainer {
+      display: block;
+    }
+    .user {
       display: block;
     }
   }

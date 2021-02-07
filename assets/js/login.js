@@ -6,6 +6,8 @@ const loginForm = document.getElementById("jsLogin");
 const NICKNAME = "nickname";
 const LOGGED_OUT = "loggedOut";
 const LOGGED_IN = "loggedIn";
+const USER = "user";
+const currentUser = localStorage.getItem("user") || [];
 const nickname = localStorage.getItem(NICKNAME);
 
 const logIn = (nickname) => {
@@ -27,6 +29,8 @@ const handleFormSubmit = (e) => {
   const input = loginForm.querySelector("input");
   const { value } = input;
   localStorage.setItem(NICKNAME, value);
+  currentUser.push(value);
+  localStorage.setItem(USER, JSON.stringify(currentUser));
   body.className = LOGGED_IN;
   logIn(value);
 };

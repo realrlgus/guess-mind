@@ -5,6 +5,7 @@ const socketController = (socket) => {
 
   socket.on(events.setNickname, ({ nickname }) => {
     broadcast(events.newUser, { nickname });
+
     socket.nickname = nickname;
   });
   socket.on(events.disconnect, () => {

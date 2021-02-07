@@ -15,6 +15,13 @@ app.get("/", (req, res) =>
   res.render("home", { events: JSON.stringify(events) })
 );
 
+app.get("/chat", (req, res) => {
+  const { id, enemy } = req.query;
+  if (!id && !enemy) res.render("home", { events: JSON.stringify(events) });
+
+  return res.render("chat", { events: JSON.stringify(events), id, enemy });
+});
+
 const handleListening = () =>
   console.log(`Listening in  http://localhost:${PORT}`);
 
